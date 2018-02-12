@@ -44,7 +44,7 @@ class TestLogin extends Component{
                 <p> Password: </p>
                 <input placeholder="password" onChange={(e) => this.passwordTypeHandler(e.target.value)}/>
                 <p style={{borderStyle: "solid", width: "10%"}} onClick={() => this.sendItBro(this.state.usernameText, this.state.passwordText)}>Submit button </p>
-                <h3> Now check the DB, you should see the hashed password </h3>
+                <h3> Now check the DB, or refresh page to see hashed users </h3>
                 
                 <div>{userzLizt}</div>
                 </div>
