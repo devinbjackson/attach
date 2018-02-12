@@ -34,7 +34,7 @@ const massiveConnection = massive(connectionString)
 
 
 
-
+app.get('/api/getHashedUsers', controller.getHashedUsers)
 app.post('/api/sendregister', controller.sendRegister)
 
 

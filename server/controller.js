@@ -16,6 +16,7 @@ module.exports = {
     },
 
     confirmPassword: (req, res, next) => { //////////// this is not functioning yet, but this is an example of how you check for password correctness.
+        const dbInstance = req.app.get("db")
         const bcrypt = req.app.get("bcrypt")
         const { username, password } = req.body /////// incoming username and password to test against what the DB has stored in it.
 
@@ -34,5 +35,14 @@ module.exports = {
                 }
 
             })})
-    }   
+    },
+
+    getHashedUsers: (req, res, next) => {
+        const dbInstance = req.app.get("db")
+      
+        dbInstance
+        .getHashedUsers()
+        .then((response) => res.status(200).send(response))
+        .catch(() => res.status(500).send())
+    }
 }
