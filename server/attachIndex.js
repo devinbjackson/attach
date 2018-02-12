@@ -6,6 +6,8 @@ const massive = require("massive");
 const passport = require("passport");
 const { json } = require("body-parser");
 const session = require("express-session");
+const controller = require("./controller.js")
+const connectionString = require("../config").massive
 const { secret } = require("./../config.js").session
 const { domain, clientID, clientSecret } = require("../config").auth0
 
@@ -22,14 +24,18 @@ app.use(
   })
 )
 
+app.set("bcrypt", bcrypt)
+
+const massiveConnection = massive(connectionString)
+  .then(db => app.set("db", db))
+  .catch(console.log) 
 
 
 
 
 
 
-
-
+app.post('/api/sendlogin', controller.sendLogin)
 
 
 app.listen(port, () => {
