@@ -5,12 +5,15 @@ import './App.css';
 import Nav from './components/layout/Nav/Nav';
 import router from "./router";
 
+import TestLogin from './components/TestLogin'
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-      <Nav />
-        {router}
+      <Nav/>
+      {router}
+        <TestLogin />
       </div>
     );
   }
