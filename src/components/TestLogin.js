@@ -6,11 +6,15 @@ class TestLogin extends Component{
         super()
         this.state = {
             passwordText: "",
-            usernameText: ""
+            usernameText: "",
+            userList: []
         }
     }
 
-
+    componentDidMount(){
+        axios.get('/api/getHashedUsers')
+        .then(response => this.setState({userList: response.data}))
+    }
 
     passwordTypeHandler(val){
         this.setState({passwordText: val})
@@ -27,7 +31,10 @@ class TestLogin extends Component{
 
 
     render(){
-            
+        const userzLizt = this.state.userList.map((user, i) => (
+            <div key={i} style={{borderStyle: "solid"}}> 
+                <p>Username: {user.username}</p><p>Hashed PW: {user.password}</p>
+                </div>))
         return(
             <div >
                 <h1> Create a user account to test password encryption:</h1>
@@ -38,6 +45,8 @@ class TestLogin extends Component{
                 <input placeholder="password" onChange={(e) => this.passwordTypeHandler(e.target.value)}/>
                 <p style={{borderStyle: "solid", width: "10%"}} onClick={() => this.sendItBro(this.state.usernameText, this.state.passwordText)}>Submit button </p>
                 <h3> Now check the DB, you should see the hashed password </h3>
+                
+                <div>{userzLizt}</div>
                 </div>
         )
     }
