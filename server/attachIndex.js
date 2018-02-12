@@ -35,7 +35,7 @@ const massiveConnection = massive(connectionString)
 
 
 
-app.post('/api/sendlogin', controller.sendLogin)
+app.post('/api/sendregister', controller.sendRegister)
 
 
 app.listen(port, () => {
