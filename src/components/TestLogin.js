@@ -10,6 +10,8 @@ class TestLogin extends Component{
         }
     }
 
+
+
     passwordTypeHandler(val){
         this.setState({passwordText: val})
     }
@@ -25,6 +27,7 @@ class TestLogin extends Component{
 
 
     render(){
+            
         return(
             <div >
                 <h1> Create a user account to test password encryption:</h1>
