@@ -17,7 +17,7 @@ class TestLogin extends Component{
         this.setState({usernameText: val})
     }
     sendItBro(username, password){
-        axios.post('/api/sendlogin',{
+        axios.post('/api/sendregister',{
             username: username,
             password: password
         })
