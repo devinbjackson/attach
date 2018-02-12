@@ -1,6 +1,6 @@
 const cors = require("cors");
 const axios = require("axios");
-var bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 const express = require("express");
 const massive = require("massive");
 const passport = require("passport");
